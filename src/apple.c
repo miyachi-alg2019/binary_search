@@ -5,6 +5,15 @@ int k;
 int A[100000];
 
 
+int p(int capacity) {
+    int i;
+    int needed_bag_num = 0;
+    for(i=0; i<n; i++) {
+	needed_bag_num += A[i]/capacity + (A[i]%capacity ? 1 : 0);
+    }
+    return needed_bag_num <= k;
+}
+
 int main(){
   int i, lb, ub;
   scanf("%d%d", &n, &k);
@@ -12,6 +21,19 @@ int main(){
     scanf("%d", &A[i]);
   }
 
+  ub = A[n-1] * n;
+  lb = 0;
+  while(ub-lb > 1) {
+      int capacity = (ub + lb)/2;
+      if(p(capacity)) {
+	  ub = capacity;
+      }
+      else {
+	  lb = capacity;
+      }
+  }
+
+  printf("%d\n", ub);
 
   return 0;
 }
