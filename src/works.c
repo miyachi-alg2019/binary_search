@@ -22,14 +22,6 @@ int can_work(int max_time) {
     return i == n;
 }
 
-int sum(int *arr, int size) {
-    int i, s = 0;
-    for(i=0; i<size; i++) {
-	s += arr[i];
-    }
-    return s;
-}
-
 int main(){
   int i, lb, ub;
   scanf("%d%d", &n, &k);
@@ -37,8 +29,8 @@ int main(){
     scanf("%d", &A[i]);
   }
 
-  ub = sum(A, n);
   lb = 0;
+  ub = 1000000000;
   while(ub-lb > 1) {
       int max_time = (ub+lb)/2;
       if(can_work(max_time)) ub = max_time;
