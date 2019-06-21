@@ -1,1 +1,3 @@
-a.out
+/samples
+test.sh
+*.o
