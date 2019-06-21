@@ -21,8 +21,8 @@ int main(){
     scanf("%d", &A[i]);
   }
 
-  ub = A[n-1];
   lb = 0;
+  ub = 1000000000;
   while(ub-lb > 1) {
       int length = (ub + lb)/2;
       if(can_make(length)) lb = length;
